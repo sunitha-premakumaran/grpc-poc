@@ -1,0 +1,5 @@
+<input [(ngModel)]="newTodo.todoMessage" (key.enter)="postTodo()"/>
+<button (click)="postTodo()">Send</button>
+<ng-container *ngFor="let todo of allTodos">
+  {{todo | json }}
+</ng-container>

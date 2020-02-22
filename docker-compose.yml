@@ -1,0 +1,24 @@
+version: '3'
+services:
+  todo-server:
+    build: 
+      context: ./todo-grpc-server/
+    ports:
+      - "9000:9000"
+
+
+  envoy:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: grpcweb/envoy
+    ports:
+      - "8080:8080"
+  
+  todo-client:
+    build:
+      context: ./todo-grpc-client/
+    ports:
+      - "4200:80"
+    
+
